@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="lista_tarea">
+            <field name="name">Lista de Tarea</field>
+            <field name="model">tareas.lista_tarea</field>
+            <field name="arch" type="xml">
+
+                <tree>
+                    <field name="titulo" />
+                    <field name="descripcion" />
+                    <field name="fecha_limite" />
+                    <field name="usuario_asignado" />
+                    <field name="categoria" />
+                    <field name="motivo_reapertura" />
+                </tree>
+
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="formulario_tarea">
+            <field name="name">Formulario de Tarea</field>
+            <field name="model">tareas.lista_tarea</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de Tarea">
+
+                    <header>
+                        <button name="button_hecho" string="Listo" states="borrador, hecho"
+                            class="oe_highlight" type="object" />
+                        <button name="button_cancelar" string="Cancelar" states="draft,done"
+                            tipo="objeto" class="oe_highlight" />
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="borrador,hecho,cancelar" />
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <field name="titulo" />
+                            <field name="descripcion" />
+                            <field name="fecha_limite" />
+                            <field name="usuario_asignado" />
+                            <field name="categoria" />
+                            <field name="motivo_reapertura" />
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="kanban_tarea">
+            <field name="name">Kanban Tarea</field>
+            <field name="model">tareas.lista_tarea</field>
+            <field name="arch" type="xml">
+                <kanban >
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_content">
+                                <field name="titulo" />
+                                <field name="descripcion" />
+                                <field name="fecha_limite" />
+                                <field name="usuario_asignado" />
+                                <field name="categoria" />
+                                <field name="motivo_reapertura" />
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_list_tarea">
+            <field name="name">Tareas</field>
+            <field name="res_model">tareas.lista_tarea</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+
+        <menuitem id="menu_tarea" name="Tareas" sequence="10" action="action_list_tarea" />
+
+
+    </data>
+</odoo>

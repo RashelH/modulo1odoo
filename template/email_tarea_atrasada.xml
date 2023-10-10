@@ -1,0 +1,18 @@
+<odoo>
+    <data noupdate="1">
+        <record id="email_tarea_atrasada" model="mail.template">
+            <field name="name">Tarea Atrasada</field>
+            <field name="email_from">${(object.company_id or '').email}</field>
+            <field name="subject">Tarea atrasada: ${object.titulo}</field>
+            <field name="partner_to">${object.usuario_asignado.partner_id.id}</field>
+            <field name="model_id" ref="model_tareas_lista_tarea"/>
+            <field name="body_html">
+                <![CDATA[
+                <p>La tarea <b>${object.titulo}</b> está atrasada. La fecha límite era el ${object.fecha_limite.strftime('%d/%m/%Y')}</p>
+                <p>Descripción de la tarea:</p>
+                <p>${object.descripcion}</p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

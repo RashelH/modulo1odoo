@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+group_responsable,responsables,model_tareas_lista_tarea,group_responsable,1,1,1,1
+group_usuario,usuarios,model_tareas_lista_tarea,group_usuario,1,1,1,1
