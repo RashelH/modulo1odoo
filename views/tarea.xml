@@ -12,7 +12,7 @@
                     <field name="titulo" />
                     <field name="descripcion" />
                     <field name="fecha_limite" />
-                    <field name="usuario_asignado" />
+                    <field name="user_id" />
                     <field name="categoria" />
                     <field name="motivo_reapertura" />
                 </tree>
@@ -28,9 +28,9 @@
                 <form string="Formulario de Tarea">
 
                     <header>
-                        <button name="button_hecho" string="Listo" states="borrador, hecho"
+                        <button name="set_state_hecho" string="Listo" states="borrador, hecho"
                             class="oe_highlight" type="object" />
-                        <button name="button_cancelar" string="Cancelar" states="draft,done"
+                        <button name="set_state_cancelar" string="Cancelar" states="borrador, hecho"
                             tipo="objeto" class="oe_highlight" />
                         <field name="state" widget="statusbar"
                             statusbar_visible="borrador,hecho,cancelar" />
@@ -41,7 +41,7 @@
                             <field name="titulo" />
                             <field name="descripcion" />
                             <field name="fecha_limite" />
-                            <field name="usuario_asignado" />
+                            <field name="user_id" />
                             <field name="categoria" />
                             <field name="motivo_reapertura" />
                         </group>
@@ -63,7 +63,7 @@
                                 <field name="titulo" />
                                 <field name="descripcion" />
                                 <field name="fecha_limite" />
-                                <field name="usuario_asignado" />
+                                <field name="user_id" />
                                 <field name="categoria" />
                                 <field name="motivo_reapertura" />
                             </div>
